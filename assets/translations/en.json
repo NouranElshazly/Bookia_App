@@ -1,0 +1,19 @@
+{
+  "welcome": "Order Your Book Now!",
+  "login": "Login",
+  "register": "Register",
+  "welcomelogin": "Welcome back! Glad  \n to see you, Again!",
+  "forgetpassword": "Forgot Password?",
+  "or": "Or",
+  "donthaveaccount": "Don't have an account?",
+  "registernow": "Register Now",
+  "haveaccount": "Already have an account?",
+  "registerwelcome": "Hello! Register to get started",
+  "darkMode": "Dark Mode",
+  "lightMode": "Light Mode",
+  "switchLanguage": "English Language",
+  "email": "Enter your email",
+  "password": "Enter your password",
+  "username": "Username ",
+  "confirmpassword": "Confirm password"
+}

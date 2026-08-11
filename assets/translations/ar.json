@@ -1,0 +1,19 @@
+{
+  "welcome": "اطلب كتابك الآن!",
+  "login": "تسجيل الدخول",
+  "register": "تسجيل",
+  "welcomelogin": "مرحبًا بعودتك! سعيد \n لرؤيتك مرة أخرى!",
+  "forgetpassword": "نسيت كلمة المرور؟",
+  "or": "أو",
+  "donthaveaccount": "ليس لديك حساب؟",
+  "registernow": "سجل الأن ",
+  "haveaccount": "هل لديك حساب بالفعل؟",
+  "registerwelcome": "مرحبًا! سجل للبدء",
+  "darkMode": "الوضع الليلي",
+  "lightMode": "الوضع النهاري",
+  "switchLanguage": "اللغة الإنجليزية",
+  "email": "أدخل بريدك الإلكتروني",
+  "password": "أدخل كلمة المرور الخاصة بك",
+  "username": "اسم المستخدم",
+  "confirmpassword": "تأكيد الباسورد "
+}
