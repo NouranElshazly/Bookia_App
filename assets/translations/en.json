@@ -15,5 +15,9 @@
   "email": "Enter your email",
   "password": "Enter your password",
   "username": "Username ",
-  "confirmpassword": "Confirm password"
+  "confirmpassword": "Confirm password",
+  "passwordrequired": "Please enter your password",
+  "confirmpasswordrequired": "Please confirm your password",
+  "passwordsdonotmatch": "Passwords do not match",
+  "passwordtooshort": "Password must be at least 8 characters"
 }

@@ -5,12 +5,14 @@ class CustomFormFeild extends StatefulWidget {
   final TextInputType keyboardType;
   final bool isPassword;
   final TextEditingController? controller;
+  final String? Function(String?)? validator;
   const CustomFormFeild({
     super.key,
     required this.hintText,
     required this.keyboardType,
     this.isPassword = false,
     this.controller,
+    this.validator,
   });
 
   @override
@@ -32,6 +34,8 @@ class _CustomFormFeildState extends State<CustomFormFeild> {
       controller: widget.controller,
       keyboardType: widget.keyboardType,
       obscureText: obscureText,
+      validator: widget.validator,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
       onTapOutside: (v) {
         FocusScope.of(context).unfocus();
       },

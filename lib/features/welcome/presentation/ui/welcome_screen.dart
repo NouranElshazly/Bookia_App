@@ -14,6 +14,7 @@ class WelcomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('DEBUG: WelcomeScreen.build called');
     return Scaffold(
       body: Container(
         width: double.infinity,

@@ -15,5 +15,9 @@
   "email": "أدخل بريدك الإلكتروني",
   "password": "أدخل كلمة المرور الخاصة بك",
   "username": "اسم المستخدم",
-  "confirmpassword": "تأكيد الباسورد "
+  "confirmpassword": "تأكيد الباسورد ",
+  "passwordrequired": "الرجاء إدخال كلمة المرور",
+  "confirmpasswordrequired": "الرجاء تأكيد كلمة المرور",
+  "passwordsdonotmatch": "كلمتا المرور غير متطابقتين",
+  "passwordtooshort": "يجب ألا تقل كلمة المرور عن 8 أحرف"
 }

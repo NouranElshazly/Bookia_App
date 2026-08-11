@@ -11,14 +11,17 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final String? token = prefs.getString(AppConstant.userTokenKey);
-  EasyLocalization(
-    supportedLocales: [Locale('en'), Locale('ar')],
-    path: 'assets/translations',
-    fallbackLocale: Locale('en'),
 
-    child: BlocProvider(
-      create: (_) => ThemeCubit(),
-      child: BookiaApp(token: token),
+  runApp(
+    EasyLocalization(
+      supportedLocales: [Locale('en'), Locale('ar')],
+      path: 'assets/translations',
+      fallbackLocale: Locale('en'),
+
+      child: BlocProvider(
+        create: (_) => ThemeCubit(),
+        child: BookiaApp(token: token),
+      ),
     ),
   );
 }

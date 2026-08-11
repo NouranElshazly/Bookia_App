@@ -1,10 +1,8 @@
-import 'package:bookia/core/helper/app_constant.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginRepo {
+class RegisterRepo {
   static Dio dio = Dio();
   static void initLogger() {
     dio.interceptors.add(
@@ -29,7 +27,7 @@ class LoginRepo {
     );
   }
 
-  static Future<bool> login({
+  static Future<bool> register({
     required String name,
     required String email,
     required String password,
@@ -43,16 +41,15 @@ class LoginRepo {
           "name": name,
           "email": email,
           "password": password,
-          "passwordconfirmation": passwordconfirmation,
+          "password_confirmation": passwordconfirmation,
         },
       );
-      if (response.statusCode == 200) {
+      if (response.statusCode == 201) {
         return true;
       } else {
         return false;
       }
     } catch (e) {
-      print(e);
       return false;
     }
   }
