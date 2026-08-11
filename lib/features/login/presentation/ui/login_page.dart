@@ -41,6 +41,7 @@ class _LoginPageState extends State<LoginPage> {
           // show loading dialog on loading
           if (state is LoginLoading) {
             AppDialog.loadingDialog(context);
+
             return;
           }
 
@@ -50,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
           }
 
           if (state is LoginSuccess) {
-            context.pushNamed(Routes.welcomeScreen);
+            context.pushNamedAndRemoveUntil(Routes.homeScreen, false);
           } else if (state is LoginError) {
             AppDialog.errorDialog(context);
           }

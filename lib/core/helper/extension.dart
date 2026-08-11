@@ -6,6 +6,10 @@ extension Navigation on BuildContext {
     return Navigator.pushNamed(this, route);
   }
 
+  Future<Object?> pushNamedAndRemoveUntil(String route, bool predicate) {
+    return Navigator.pushNamedAndRemoveUntil(this, route, (v) => predicate);
+  }
+
   void pop() => Navigator.pop(this);
 }
 

@@ -1,4 +1,5 @@
 import 'package:bookia/core/routes/routes.dart';
+import 'package:bookia/features/home/presentation/ui/home_screen.dart';
 import 'package:bookia/features/login/presentation/ui/login_page.dart';
 import 'package:bookia/features/notfound/presentation/ui/page_not_found.dart';
 import 'package:bookia/features/register/presentation/cubit/cubit/login_cubit.dart';
@@ -21,6 +22,8 @@ class AppRouter {
         return MaterialPageRoute(builder: (context) => RegisterScreen());
       case Routes.welcomeScreen:
         return MaterialPageRoute(builder: (context) => WelcomeScreen());
+      case Routes.homeScreen:
+        return MaterialPageRoute(builder: (context) => HomeScreen());
       default:
         return MaterialPageRoute(builder: (context) => PageNotFound());
     }

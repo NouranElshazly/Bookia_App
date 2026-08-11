@@ -7,7 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class BookiaApp extends StatelessWidget {
-  const BookiaApp({super.key});
+  final String? token;
+  const BookiaApp({super.key, this.token});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,9 @@ class BookiaApp extends StatelessWidget {
               supportedLocales: context.supportedLocales,
               locale: context.locale,
               onGenerateRoute: AppRouter.onGenerateRoute,
-              initialRoute: Routes.welcomeScreen,
+              initialRoute: token == null
+                  ? Routes.welcomeScreen
+                  : Routes.homeScreen,
             );
           },
         );
