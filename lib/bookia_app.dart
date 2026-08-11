@@ -12,18 +12,13 @@ class BookiaApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint('DEBUG: BookiaApp.build, token=$token');
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
       builder: (context, child) {
-        debugPrint('DEBUG: ScreenUtilInit builder called');
         return BlocBuilder<ThemeCubit, ThemeState>(
           builder: (context, state) {
-            debugPrint(
-              'DEBUG: BlocBuilder builder called, building MaterialApp',
-            );
             return MaterialApp(
               debugShowCheckedModeBanner: false,
               theme: context.read<ThemeCubit>().currentTheme,
