@@ -24,5 +24,7 @@ abstract class  LocaleKeys {
   static const confirmpasswordrequired = 'confirmpasswordrequired';
   static const passwordsdonotmatch = 'passwordsdonotmatch';
   static const passwordtooshort = 'passwordtooshort';
+  static const city = 'city';
+  static const address = 'address';
 
 }

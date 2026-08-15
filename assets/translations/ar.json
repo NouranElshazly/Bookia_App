@@ -19,5 +19,7 @@
   "passwordrequired": "الرجاء إدخال كلمة المرور",
   "confirmpasswordrequired": "الرجاء تأكيد كلمة المرور",
   "passwordsdonotmatch": "كلمتا المرور غير متطابقتين",
-  "passwordtooshort": "يجب ألا تقل كلمة المرور عن 8 أحرف"
+  "passwordtooshort": "يجب ألا تقل كلمة المرور عن 8 أحرف",
+  "city": "المدينه",
+  "address": "العنوان "
 }

@@ -19,5 +19,7 @@
   "passwordrequired": "Please enter your password",
   "confirmpasswordrequired": "Please confirm your password",
   "passwordsdonotmatch": "Passwords do not match",
-  "passwordtooshort": "Password must be at least 8 characters"
+  "passwordtooshort": "Password must be at least 8 characters",
+  "city": "City",
+  "address": "Address"
 }

@@ -5,6 +5,7 @@ import 'package:bookia/core/theme/app_colors.dart';
 import 'package:bookia/core/widgets/app_buttom.dart';
 import 'package:bookia/core/widgets/custom_back_button.dart';
 import 'package:bookia/core/widgets/custom_form_feild.dart';
+import 'package:bookia/features/register/data/model/register_request_body.dart';
 import 'package:bookia/features/register/presentation/cubit/register_cubit.dart';
 // import 'package:bookia/features/login/presentation/ui/login_page.dart';
 import 'package:bookia/gen/locale_keys.g.dart';
@@ -26,7 +27,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController nameController = TextEditingController();
   final TextEditingController confirmController = TextEditingController();
-
+  final TextEditingController cityController = TextEditingController();
+  final TextEditingController addressController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   @override
   void dispose() {
@@ -34,6 +36,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
     nameController.dispose();
     confirmController.dispose();
     passwordController.dispose();
+    cityController.dispose();
+    addressController.dispose();
     super.dispose();
   }
 
@@ -55,7 +59,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           }
 
           if (state is RegisterSuccess) {
-            context.pushNamedAndRemoveUntil(Routes.loginScreen, false);
+            context.pushNamedAndRemoveUntil(Routes.homeScreen, false);
           } else if (state is RegisterError) {
             AppDialog.errorDialog(context);
           }
@@ -85,6 +89,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   controller: emailController,
                   hintText: LocaleKeys.email.tr(),
                   keyboardType: TextInputType.emailAddress,
+                ),
+                CustomFormFeild(
+                  controller: addressController,
+                  hintText: LocaleKeys.address.tr(),
+                  keyboardType: TextInputType.text,
+                ),
+                CustomFormFeild(
+                  controller: cityController,
+                  hintText: LocaleKeys.city.tr(),
+                  keyboardType: TextInputType.text,
                 ),
 
                 SizedBox(height: 13.h),
@@ -126,10 +140,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   text: LocaleKeys.register.tr(),
                   onPressed: () {
                     context.read<RegisterCubit>().register(
-                      name: nameController.text,
-                      passwordconfirmation: confirmController.text,
-                      email: emailController.text,
-                      password: passwordController.text,
+                      RegisterRequestBody(
+                        name: nameController.text,
+                        email: emailController.text,
+                        password: passwordController.text,
+                        confirmPassword: confirmController.text,
+                        city: cityController.text,
+                        address: addressController.text,
+                      ),
                     );
                   },
                 ),

@@ -1,5 +1,6 @@
 import 'package:bookia/bookia_app.dart';
 import 'package:bookia/core/helper/app_constant.dart';
+import 'package:bookia/core/networking/dio_factory.dart';
 import 'package:bookia/core/theme/cubit/theme_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,6 +12,7 @@ void main() async {
   await EasyLocalization.ensureInitialized();
   final SharedPreferences prefs = await SharedPreferences.getInstance();
   final String? token = prefs.getString(AppConstant.userTokenKey);
+  DioFactory.init();
 
   runApp(
     EasyLocalization(
