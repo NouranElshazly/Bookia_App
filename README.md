@@ -8,6 +8,10 @@ Bookia is a Flutter application featuring a clean onboarding flow (Welcome → L
 | ------------------------------------------- | --------------------------------------- | --------------------------------------------- | ---------------------------------------- |
 | ![Welcome Screen](screenshoots/welcome.png) | ![Login Screen](screenshoots/login.png) | ![Register Screen](screenshoots/register.png) | ![Error Dialog ](screenshoots/error.png) |
 
+| Register (English)                              | Register (Arabic)                             |
+| ------------------------------------------------ | --------------------------------------------- |
+| ![Register English](screenshoots/reg-eng.png) | ![Register Arabic](screenshoots/reg-ar.png) |
+
 | Dark Mode                           | Arabic (RTL)                                    |
 | ----------------------------------- | ----------------------------------------------- |
 | ![Dark Mode](screenshoots/dark.png) | ![Arabic Localization](screenshoots/arabic.png) |
@@ -19,6 +23,9 @@ Bookia is a Flutter application featuring a clean onboarding flow (Welcome → L
 - **Onboarding / Welcome screen** with quick access to Login and Register.
 - **Login & Register screens** with custom form fields and validation-ready inputs.
 - **Login API integration** via Dio (`POST /api/login`) with request/response logging.
+- **Register API integration** via Dio (`POST /Register`) through `RegisterCubit` / `RegisterRepo`, with password confirmation validation and auth-token persistence on success.
+- **Shared `DioFactory`** providing a configured `Dio` instance (base URL, timeouts, `PrettyDioLogger`) reused by both Login and Register.
+- **Auth token persistence** via `shared_preferences`, read on app start to decide the initial route.
 - **Light / Dark theme toggle** powered by `ThemeCubit` (BLoC).
 - **Arabic & English localization** with a language switch (RTL supported) via `easy_localization`.
 - **Responsive UI** across device sizes using `flutter_screenutil`.
@@ -33,9 +40,10 @@ Bookia is a Flutter application featuring a clean onboarding flow (Welcome → L
 | ----------------------------------------------------------------------- | ------- | ------------------------------------------------------------------- |
 | [flutter_bloc](https://pub.dev/packages/flutter_bloc)                   | ^9.1.1  | State management (Cubit/BLoC) for UI                                |
 | [bloc](https://pub.dev/packages/bloc)                                   | ^9.0.1  | Core BLoC library used by `flutter_bloc`                            |
-| [dio](https://pub.dev/packages/dio)                                     | ^5.11.0 | HTTP client used for API requests (e.g. login)                      |
+| [dio](https://pub.dev/packages/dio)                                     | ^5.11.0 | HTTP client used for API requests (login, register)                 |
 | [http](https://pub.dev/packages/http)                                   | ^1.6.0  | Lightweight HTTP client                                             |
 | [pretty_dio_logger](https://pub.dev/packages/pretty_dio_logger)         | ^1.4.0  | Readable request/response logging for Dio in debug mode             |
+| [shared_preferences](https://pub.dev/packages/shared_preferences)       | ^2.5.5  | Local persistence for the auth token (login/register)               |
 | [easy_localization](https://pub.dev/packages/easy_localization)         | ^3.0.8  | App localization (English / Arabic) with `.tr()` and generated keys |
 | [flutter_screenutil](https://pub.dev/packages/flutter_screenutil)       | ^5.9.3  | Responsive sizing/scaling (`.w`, `.h`, `.r`, `.sp`) across devices  |
 | [flutter_native_splash](https://pub.dev/packages/flutter_native_splash) | ^2.4.7  | Native splash screen generation for Android/iOS                     |
@@ -59,13 +67,14 @@ lib/
 ├── bookia_app.dart                # MaterialApp, ScreenUtilInit, routing & theming wiring
 ├── core/
 │   ├── helper/                   # Extensions & dialog helpers
+│   ├── networking/                # DioFactory (base Dio client, timeouts, logger)
 │   ├── routes/                   # Route names (Routes) & AppRouter (onGenerateRoute)
 │   ├── theme/                    # AppColors, AppTheme, ThemeCubit (light/dark)
 │   └── widgets/                  # Shared widgets (buttons, form fields, back button)
 ├── features/
 │   ├── welcome/                  # Welcome/onboarding screen + settings widget
 │   ├── login/                    # Login page + Dio-based LoginRepo
-│   ├── register/                 # Register screen + LoginCubit/LoginState
+│   ├── register/                 # Register screen + RegisterCubit/RegisterState + RegisterRepo
 │   └── notfound/                 # 404 / Page Not Found screen
 └── gen/                          # Auto-generated assets, fonts & locale keys
 ```
