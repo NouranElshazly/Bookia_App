@@ -90,11 +90,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   hintText: LocaleKeys.email.tr(),
                   keyboardType: TextInputType.emailAddress,
                 ),
+                SizedBox(height: 13.h),
+
                 CustomFormFeild(
                   controller: addressController,
                   hintText: LocaleKeys.address.tr(),
                   keyboardType: TextInputType.text,
                 ),
+                SizedBox(height: 13.h),
+
                 CustomFormFeild(
                   controller: cityController,
                   hintText: LocaleKeys.city.tr(),
@@ -151,7 +155,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     );
                   },
                 ),
-                SizedBox(height: 184.h),
+                SizedBox(height: 154.h),
                 Center(
                   child: RichText(
                     text: TextSpan(
